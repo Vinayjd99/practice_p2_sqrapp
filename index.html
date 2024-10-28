@@ -1,0 +1,42 @@
+<html>
+<head>
+	<title>Square App</title>
+	<link rel="stylesheet" href="mystyle.css">
+</head>
+<body>
+	<center>
+		<div class="nav">
+			<a href="index.html">Home</a>
+			<a href="aboutus.html">About us</a>
+		</div>
+		<h1>Square App</h1>
+		<form onsubmit="find()">
+			<input type="number" step="any" id="num" placeholder="Enter integer" />
+			<br /> <br />
+			<input type="submit" value="Find square" />
+
+		</form>		
+	</center>
+	<script>
+		function find() {
+			event.preventDefault();	
+			let num = document.getElementById("num");
+			let msg = document.getElementById("msg");
+
+			if (num.value === "") {
+				alert("please enter integer");
+				msg.innerHTML = "";
+				num.focus();
+				return;
+			}
+			
+			let n = parseFloat(num.value);
+			let r = n ** 2;
+			r = r.toFixed(2);
+			localStorage.setItem("res",r);
+			window.location.href = "result.html";
+
+		}
+	</script>
+</body>
+</html>
